@@ -19,11 +19,29 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Handle form submission here
-    console.log('Form submitted:', formData)
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' })
-    alert('Thank you for your message! I\'ll get back to you soon.')
+    
+    // Create mailto link with form data
+    const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio Website')
+    const body = encodeURIComponent(
+      `Hello Yasith,\n\n` +
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Subject: ${formData.subject}\n\n` +
+      `Message:\n${formData.message}\n\n` +
+      `Best regards,\n${formData.name}`
+    )
+    
+    const mailtoLink = `mailto:tgyasithimalka@gmail.com?subject=${subject}&body=${body}`
+    
+    // Open default email client
+    window.location.href = mailtoLink
+    
+    // Reset form after a short delay
+    setTimeout(() => {
+      setFormData({ name: '', email: '', subject: '', message: '' })
+    }, 1000)
+    
+    alert('Opening your email client... Please send the email from there!')
   }
 
   const contactMethods = [

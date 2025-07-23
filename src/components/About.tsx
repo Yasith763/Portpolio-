@@ -3,7 +3,7 @@ import './About.css'
 
 const About: React.FC = () => {
   const stats = [
-    { number: '50+', label: 'Projects Completed' },
+    { number: '10+', label: 'Projects Completed' },
     { number: '3+', label: 'Years Experience' },
     { number: '20+', label: 'Happy Clients' },
     { number: '100%', label: 'Satisfaction Rate' }
