@@ -1,0 +1,136 @@
+.unilife {
+  padding: 5rem 0;
+  background: var(--background-color);
+}
+
+.unilife__container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.unilife__header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.unilife__title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.unilife__subtitle {
+  font-size: 1.5rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.unilife__description {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.unilife__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.unilife__card {
+  background: var(--card-background);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.unilife__card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.unilife__card-image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+}
+
+.unilife__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.unilife__card:hover .unilife__image {
+  transform: scale(1.05);
+}
+
+.unilife__card-content {
+  padding: 1.5rem;
+}
+
+.unilife__card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.unilife__card-subtitle {
+  font-size: 1rem;
+  color: var(--accent-color);
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.unilife__card-description {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .unilife {
+    padding: 3rem 0;
+  }
+  
+  .unilife__container {
+    padding: 0 1rem;
+  }
+  
+  .unilife__title {
+    font-size: 2rem;
+  }
+  
+  .unilife__subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .unilife__grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .unilife__card-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .unilife__title {
+    font-size: 1.75rem;
+  }
+  
+  .unilife__card-image {
+    height: 200px;
+  }
+}
