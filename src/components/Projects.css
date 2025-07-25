@@ -3,6 +3,41 @@
   background: white;
 }
 
+/* Animation Classes */
+.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Initial state for elements before animation */
+.projects__header:not(.fade-in-up),
+.projects__featured:not(.fade-in-up),
+.projects__other:not(.fade-in-up) {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Initial state for project cards before animation */
+.projects__card:not(.fade-in-up) {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* Staggered animations */
+.projects__card.fade-in-up {
+  animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
 .projects__container {
   max-width: 1200px;
   margin: 0 auto;
@@ -76,13 +111,15 @@
   border-radius: 1rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.8);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   overflow: hidden;
+  transform: translateY(0);
 }
 
 .projects__card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border-color: rgba(102, 126, 234, 0.2);
 }
 
 .projects__card--featured {
@@ -153,6 +190,13 @@
   font-weight: 600;
   border-radius: 1rem;
   border: 1px solid rgba(102, 126, 234, 0.2);
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.projects__tech-tag:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+  transform: translateY(-2px);
+  border-color: rgba(102, 126, 234, 0.4);
 }
 
 .projects__card-links {
@@ -167,10 +211,12 @@
   border-radius: 0.5rem;
   font-weight: 600;
   font-size: 0.9rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .projects__link--primary {
@@ -180,8 +226,9 @@
 }
 
 .projects__link--primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
 }
 
 .projects__link--secondary {
@@ -193,7 +240,8 @@
 .projects__link--secondary:hover {
   background: #667eea;
   color: white;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
 }
 
 .projects__icon-link {
@@ -205,12 +253,13 @@
   color: #718096;
   text-decoration: none;
   border-radius: 0.25rem;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .projects__icon-link:hover {
   color: #667eea;
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.1);
+  background: rgba(102, 126, 234, 0.1);
 }
 
 .projects__link-icon {
@@ -238,7 +287,7 @@
   }
 
   .projects__header {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   .projects__featured-grid {
@@ -267,17 +316,42 @@
 
   .projects__card-links {
     flex-wrap: wrap;
+    gap: 0.5rem;
   }
 
   .projects__link {
     padding: 0.4rem 0.8rem;
     font-size: 0.85rem;
   }
+
+  .projects__card-title {
+    font-size: 1.25rem;
+  }
+
+  .projects__card--featured .projects__card-title {
+    font-size: 1.5rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .projects {
+    padding: 2.5rem 0;
+  }
+
+  .projects__container {
+    padding: 0 0.75rem;
+  }
+
   .projects__featured-grid {
     grid-template-columns: 1fr;
+  }
+
+  .projects__card:not(.projects__card--featured) {
+    padding: 1rem;
+  }
+
+  .projects__card-content {
+    padding: 1rem;
   }
 
   .projects__card-technologies {
@@ -292,5 +366,42 @@
   .projects__link {
     padding: 0.35rem 0.7rem;
     font-size: 0.8rem;
+  }
+
+  .projects__card-title {
+    font-size: 1.1rem;
+  }
+
+  .projects__card--featured .projects__card-title {
+    font-size: 1.3rem;
+  }
+
+  .projects__card-description {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 320px) {
+  .projects__container {
+    padding: 0 0.5rem;
+  }
+
+  .projects__card:not(.projects__card--featured) {
+    padding: 0.875rem;
+  }
+
+  .projects__card-content {
+    padding: 0.875rem;
+  }
+
+  .projects__tech-tag {
+    padding: 0.15rem 0.5rem;
+    font-size: 0.7rem;
+  }
+
+  .projects__link {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
   }
 }

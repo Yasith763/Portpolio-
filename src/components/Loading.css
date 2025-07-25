@@ -255,30 +255,73 @@
   .loading__progress {
     width: 150px;
   }
+  
+  .loading__dot--1,
+  .loading__dot--2,
+  .loading__dot--3 {
+    transform-origin: 50px 50px;
+  }
 }
 
 @media (max-width: 480px) {
   .loading__logo {
     width: 80px;
     height: 80px;
+    margin: 0 auto 1.5rem;
   }
   
   .loading__logo-letter {
     font-size: 2.5rem;
   }
   
+  .loading__name {
+    font-size: 1.1rem;
+  }
+  
+  .loading__subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .loading__progress {
+    width: 120px;
+    height: 2px;
+  }
+  
+  .loading__percentage {
+    font-size: 0.8rem;
+  }
+  
   .loading__dot--1,
   .loading__dot--2,
   .loading__dot--3 {
     transform-origin: 40px 40px;
+    width: 6px;
+    height: 6px;
   }
   
-  .loading__orbit {
-    from {
-      transform: rotate(0deg) translateX(40px) rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg) translateX(40px) rotate(-360deg);
-    }
+  .loading__particle {
+    width: 3px;
+    height: 3px;
+  }
+}
+
+@media (max-width: 320px) {
+  .loading__logo {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .loading__logo-letter {
+    font-size: 2rem;
+  }
+  
+  .loading__progress {
+    width: 100px;
+  }
+  
+  .loading__dot--1,
+  .loading__dot--2,
+  .loading__dot--3 {
+    transform-origin: 35px 35px;
   }
 }

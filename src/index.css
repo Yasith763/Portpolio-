@@ -117,6 +117,25 @@
   }
 }
 
+/* Mobile-first responsive typography */
+@media (max-width: 768px) {
+  :root {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 320px) {
+  :root {
+    font-size: 12px;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -126,9 +145,40 @@ body {
   min-width: 320px;
   min-height: 100vh;
   font-family: inherit;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 #root {
   width: 100%;
   min-height: 100vh;
+}
+
+/* Responsive images */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Improve scroll performance on mobile */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent horizontal scroll on mobile */
+body {
+  overflow-x: hidden;
 }

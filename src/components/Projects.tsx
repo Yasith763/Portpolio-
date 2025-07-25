@@ -2,8 +2,12 @@ import React from 'react'
 import './Projects.css'
 import fastx from '../assets/fastx.jpeg'
 import moraclick from '../assets/moraclick.jpeg'
+import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Projects: React.FC = () => {
+  const header = useScrollAnimation<HTMLDivElement>()
+  const featuredSection = useScrollAnimation<HTMLDivElement>()
+  const otherSection = useScrollAnimation<HTMLDivElement>()
   const projects = [
     {
       id: 1,
@@ -68,7 +72,7 @@ const Projects: React.FC = () => {
   return (
     <section id="projects" className="projects">
       <div className="projects__container">
-        <div className="projects__header">
+        <div ref={header.ref} className={`projects__header ${header.isVisible ? 'fade-in-up' : ''}`}>
           <h2 className="projects__title">Projects</h2>
           <h3 className="projects__subtitle">Things I've Built</h3>
           <p className="projects__description">
@@ -77,11 +81,11 @@ const Projects: React.FC = () => {
           </p>
         </div>
 
-        <div className="projects__featured">
+        <div ref={featuredSection.ref} className={`projects__featured ${featuredSection.isVisible ? 'fade-in-up' : ''}`}>
           <h4 className="projects__section-title">Featured Projects</h4>
           <div className="projects__featured-grid">
-            {featuredProjects.map((project) => (
-              <div key={project.id} className="projects__card projects__card--featured">
+            {featuredProjects.map((project, index) => (
+              <div key={project.id} className={`projects__card projects__card--featured ${featuredSection.isVisible ? 'fade-in-up' : ''}`} style={{ animationDelay: featuredSection.isVisible ? `${index * 0.2}s` : '0s' }}>
                 <div className="projects__card-image">
                   <img 
                     src={project.image} 
@@ -118,11 +122,11 @@ const Projects: React.FC = () => {
           </div>
         </div>
 
-        <div className="projects__other">
+        <div ref={otherSection.ref} className={`projects__other ${otherSection.isVisible ? 'fade-in-up' : ''}`}>
           <h4 className="projects__section-title">Other Notable Projects</h4>
           <div className="projects__grid">
-            {otherProjects.map((project) => (
-              <div key={project.id} className="projects__card">
+            {otherProjects.map((project, index) => (
+              <div key={project.id} className={`projects__card ${otherSection.isVisible ? 'fade-in-up' : ''}`} style={{ animationDelay: otherSection.isVisible ? `${index * 0.1}s` : '0s' }}>
                 <div className="projects__card-header">
                   <h5 className="projects__card-title">{project.title}</h5>
                   <div className="projects__card-links">

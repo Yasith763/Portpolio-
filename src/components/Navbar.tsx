@@ -37,7 +37,9 @@ const Navbar: React.FC = () => {
       <div className="navbar__container">
         <div className="navbar__brand">
           <a href="#home" onClick={() => handleNavClick('#home')}>
-            <span className="navbar__logo">Yasith Imalka</span>
+            <div className="navbar__logo">
+              <span className="navbar__logo-y">Y</span>
+            </div>
           </a>
         </div>
 

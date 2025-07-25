@@ -237,32 +237,34 @@
   }
 
   .contact__header {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   .contact__content {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .contact__info {
     gap: 2rem;
+    order: 2;
   }
 
   .contact__methods {
-    gap: 1.25rem;
+    gap: 1rem;
   }
 
   .contact__method {
     padding: 1.25rem;
-    flex-direction: column;
-    text-align: center;
-    gap: 0.75rem;
+    flex-direction: row;
+    text-align: left;
+    gap: 1rem;
   }
 
   .contact__method-icon-wrapper {
     width: 2.5rem;
     height: 2.5rem;
+    flex-shrink: 0;
   }
 
   .contact__method-icon {
@@ -272,6 +274,7 @@
 
   .contact__form {
     padding: 1.5rem;
+    order: 1;
   }
 
   .contact__availability {
@@ -280,12 +283,29 @@
 }
 
 @media (max-width: 480px) {
+  .contact {
+    padding: 2.5rem 0;
+  }
+
+  .contact__container {
+    padding: 0 0.75rem;
+  }
+
   .contact__form {
     padding: 1.25rem;
   }
 
   .contact__method {
     padding: 1rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.75rem;
+  }
+
+  .contact__method-icon-wrapper {
+    width: 2.25rem;
+    height: 2.25rem;
+    margin: 0 auto;
   }
 
   .contact__availability {
@@ -294,5 +314,38 @@
 
   .contact__submit {
     padding: 0.75rem 1.5rem;
+    width: 100%;
+  }
+
+  .contact__form-group {
+    margin-bottom: 1rem;
+  }
+
+  .contact__input,
+  .contact__textarea {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .contact__container {
+    padding: 0 0.5rem;
+  }
+
+  .contact__form {
+    padding: 1rem;
+  }
+
+  .contact__method {
+    padding: 0.875rem;
+  }
+
+  .contact__availability {
+    padding: 0.875rem;
+  }
+
+  .contact__submit {
+    padding: 0.7rem 1.25rem;
+    font-size: 0.9rem;
   }
 }
