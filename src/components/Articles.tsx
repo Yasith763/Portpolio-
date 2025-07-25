@@ -1,11 +1,15 @@
 import React from 'react'
 import './Articles.css'
+import useScrollAnimation from '../hooks/useScrollAnimation'
 import OSI from '../assets/OSI.webp'
 import Waterfall from '../assets/Waterfall.webp'
 import AI from '../assets/AI.webp'
 import SQL from '../assets/SQL.webp'
 
 const Articles: React.FC = () => {
+  const headerAnimation = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 })
+  const gridAnimation = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 })
+
   const articles = [
     {
       id: 1,
@@ -40,7 +44,10 @@ const Articles: React.FC = () => {
   return (
     <section id="articles" className="articles">
       <div className="articles__container">
-        <div className="articles__header">
+        <div 
+          ref={headerAnimation.ref}
+          className={`articles__header fade-in ${headerAnimation.isVisible ? 'visible' : ''}`}
+        >
           <h2 className="articles__title">My Articles</h2>
           <h3 className="articles__subtitle">Technical Insights & Knowledge Sharing</h3>
           <p className="articles__description">
@@ -50,9 +57,17 @@ const Articles: React.FC = () => {
           </p>
         </div>
 
-        <div className="articles__grid">
-          {articles.map((article) => (
-            <div key={article.id} className="articles__card">
+        <div 
+          ref={gridAnimation.ref}
+          className={`articles__grid stagger-children ${gridAnimation.isVisible ? 'visible' : ''}`}
+        >
+          {articles.map((article, index) => (
+            <div 
+              key={article.id} 
+              className={`articles__card stagger-item ${
+                index % 2 === 0 ? 'fade-in-left' : 'fade-in-right'
+              }`}
+            >
               <div className="articles__card-image">
                 <img 
                   src={article.image} 
@@ -63,10 +78,10 @@ const Articles: React.FC = () => {
               <div className="articles__card-content">
                 <h4 className="articles__card-title">{article.title}</h4>
                 <p className="articles__card-description">
-                  {article.description.split('\n').map((line, index) => (
-                    <React.Fragment key={index}>
+                  {article.description.split('\n').map((line, lineIndex) => (
+                    <React.Fragment key={lineIndex}>
                       {line}
-                      {index < article.description.split('\n').length - 1 && <br />}
+                      {lineIndex < article.description.split('\n').length - 1 && <br />}
                     </React.Fragment>
                   ))}
                 </p>

@@ -1,5 +1,6 @@
 import React from 'react'
 import './UniLife.css'
+import useScrollAnimation from '../hooks/useScrollAnimation'
 import robogames from '../assets/robogames.jpeg'
 import sliot from '../assets/sliot.jpeg'
 import moraspirit from '../assets/moraspirit.jpg'
@@ -9,6 +10,9 @@ import careersday from '../assets/carees day.jpg'
 import hittheground from '../assets/hit the ground.jpg'
 
 const UniLife: React.FC = () => {
+  const headerAnimation = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 })
+  const gridAnimation = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 })
+
   const engagements = [
     {
       id: 1,
@@ -64,7 +68,10 @@ const UniLife: React.FC = () => {
   return (
     <section id="university-engagements" className="unilife">
       <div className="unilife__container">
-        <div className="unilife__header">
+        <div 
+          ref={headerAnimation.ref}
+          className={`unilife__header slide-up ${headerAnimation.isVisible ? 'visible' : ''}`}
+        >
           <h2 className="unilife__title">University Engagements</h2>
           <h3 className="unilife__subtitle">Campus Life & Activities</h3>
           <p className="unilife__description">
@@ -73,9 +80,16 @@ const UniLife: React.FC = () => {
           </p>
         </div>
 
-        <div className="unilife__grid">
-          {engagements.map((engagement) => (
-            <div key={engagement.id} className="unilife__card">
+        <div 
+          ref={gridAnimation.ref}
+          className={`unilife__grid stagger-children ${gridAnimation.isVisible ? 'visible' : ''}`}
+        >
+          {engagements.map((engagement, index) => (
+            <div 
+              key={engagement.id} 
+              className={`unilife__card stagger-item scale-in`}
+              style={{ transitionDelay: `${index * 0.1}s` }}
+            >
               <div className="unilife__card-image">
                 <img 
                   src={engagement.image} 

@@ -1,7 +1,11 @@
 import React from 'react'
 import './Skills.css'
+import useScrollAnimation from '../hooks/useScrollAnimation'
 
 const Skills: React.FC = () => {
+  const headerAnimation = useScrollAnimation<HTMLDivElement>({ threshold: 0.2 })
+  const skillsAnimation = useScrollAnimation<HTMLDivElement>({ threshold: 0.1 })
+
   const skillCategories = [
     {
       title: 'Frontend Development',
@@ -41,7 +45,10 @@ const Skills: React.FC = () => {
   return (
     <section id="skills" className="skills">
       <div className="skills__container">
-        <div className="skills__header">
+        <div 
+          ref={headerAnimation.ref}
+          className={`skills__header fade-in ${headerAnimation.isVisible ? 'visible' : ''}`}
+        >
           <h2 className="skills__title">Skills</h2>
           <h3 className="skills__subtitle">Technologies I Work With</h3>
           <p className="skills__description">
@@ -52,9 +59,12 @@ const Skills: React.FC = () => {
           </p>
         </div>
 
-        <div className="skills__grid">
+        <div 
+          ref={skillsAnimation.ref}
+          className={`skills__grid stagger-children ${skillsAnimation.isVisible ? 'visible' : ''}`}
+        >
           {skillCategories.map((category, categoryIndex) => (
-            <div key={categoryIndex} className="skills__category">
+            <div key={categoryIndex} className="skills__category stagger-item scale-in">
               <h4 className="skills__category-title">{category.title}</h4>
               <div className="skills__list">
                 {category.skills.map((skill, skillIndex) => (

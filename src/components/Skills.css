@@ -124,9 +124,14 @@
   height: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border-radius: 3px;
-  width: var(--width);
-  transition: width 1.5s ease-in-out;
+  width: 0;
+  transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  will-change: width;
+}
+
+.stagger-children.visible .skills__progress-bar {
+  width: var(--width);
 }
 
 .skills__progress-bar::after {
@@ -136,8 +141,13 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
-  animation: shimmer 2s infinite;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+  animation: shimmer 2.5s infinite;
+  transform: translateX(-100%);
+}
+
+.stagger-children.visible .skills__progress-bar::after {
+  animation: shimmer 2.5s infinite, slideIn 2s ease-out;
 }
 
 .skills__additional {
@@ -241,4 +251,34 @@
     align-items: flex-start;
     gap: 0.25rem;
   }
+}
+
+/* Enhanced Animations */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Skill category hover effects */
+.skills__category {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform;
+}
+
+.skills__category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
