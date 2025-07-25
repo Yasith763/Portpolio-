@@ -7,6 +7,27 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.app--hidden {
+  opacity: 0;
+}
+
+.app--visible {
+  opacity: 1;
+  animation: fadeInApp 0.8s ease-out;
+}
+
+@keyframes fadeInApp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 main {
