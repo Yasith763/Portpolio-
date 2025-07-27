@@ -1,6 +1,6 @@
 import React from 'react'
 import yasixPhoto from '../assets/yasith.png'
-import cv from "../assets/Yasith Imalka's CV.pdf"
+import cv from "../assets/Yasith's CV.pdf"
 import './Hero.css'
 
 const Hero: React.FC = () => {
