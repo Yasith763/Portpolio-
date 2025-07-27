@@ -1,5 +1,5 @@
 import React from 'react'
-import yasixPhoto from '../assets/yasix.jpg'
+import yasixPhoto from '../assets/yasith.png'
 import cv from "../assets/Yasith Imalka's CV.pdf"
 import './Hero.css'
 
