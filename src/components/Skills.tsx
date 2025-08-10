@@ -14,19 +14,15 @@ const Skills: React.FC = () => {
         { name: 'TypeScript', level: 85 },
         { name: 'JavaScript', level: 95 },
         { name: 'HTML/CSS', level: 95 },
-        { name: 'Next.js', level: 85 },
-        { name: 'Vue.js', level: 80 }
+        { name: 'Next.js', level: 70 },
+        { name: 'Tailwind CSS', level: 80 },
       ]
     },
     {
       title: 'Backend Development',
       skills: [
         { name: 'Node.js', level: 90 },
-        { name: 'Python', level: 85 },
         { name: 'Express.js', level: 88 },
-        { name: 'Django', level: 80 },
-        { name: 'REST APIs', level: 92 },
-        { name: 'GraphQL', level: 75 }
       ]
     },
     {
@@ -35,9 +31,7 @@ const Skills: React.FC = () => {
         { name: 'MongoDB', level: 85 },
         { name: 'PostgreSQL', level: 80 },
         { name: 'MySQL', level: 82 },
-        { name: 'Redis', level: 75 },
         { name: 'Docker', level: 78 },
-        { name: 'AWS', level: 70 }
       ]
     }
   ]
