@@ -2,6 +2,7 @@ import React from 'react'
 import './Projects.css'
 import fastx from '../assets/fastx.jpeg'
 import moraclick from '../assets/moraclick.jpeg'
+import zia from '../assets/zia.png'
 import { useScrollAnimation } from '../hooks/useScrollAnimation'
 
 const Projects: React.FC = () => {
@@ -9,6 +10,17 @@ const Projects: React.FC = () => {
   const featuredSection = useScrollAnimation<HTMLDivElement>()
   const otherSection = useScrollAnimation<HTMLDivElement>()
   const projects = [
+    {
+      id: 0,
+      title: 'Zia – Online Service Marketplace',
+      description: 'Developed a SaaS-based web platform connecting customers in Sri Lanka with local service providers for categories such as tutoring, household repairs, and design. Implemented geo-location search, secure payment integration, real-time messaging, reviews & ratings, and an admin dashboard for system oversight. Focused on usability, scalability, and security, enabling role-based access control and mobile responsiveness.',
+  image: zia,
+      technologies: ['React.js', 'Node.js (Express)', 'PostgreSQL', 'Google Maps API', 'AWS', 'PayHere/Stripe', 'WebSocket (Socket.IO)'],
+      liveUrl: '',
+      githubUrl: 'https://github.com/CS3203-Project',
+      featured: true,
+      duration: 'July 2025 – Present'
+    },
     {
       id: 1,
       title: 'MoraClick',
