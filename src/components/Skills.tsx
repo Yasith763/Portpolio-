@@ -10,28 +10,28 @@ const Skills: React.FC = () => {
     {
       title: 'Frontend Development',
       skills: [
-        { name: 'React', level: 90 },
-        { name: 'TypeScript', level: 85 },
-        { name: 'JavaScript', level: 95 },
-        { name: 'HTML/CSS', level: 95 },
-        { name: 'Next.js', level: 70 },
-        { name: 'Tailwind CSS', level: 80 },
+        { name: 'React' },
+        { name: 'TypeScript' },
+        { name: 'JavaScript' },
+        { name: 'HTML/CSS' },
+        { name: 'Next.js' },
+        { name: 'Tailwind CSS' },
       ]
     },
     {
       title: 'Backend Development',
       skills: [
-        { name: 'Node.js', level: 90 },
-        { name: 'Express.js', level: 88 },
+        { name: 'Node.js' },
+        { name: 'Express.js' },
       ]
     },
     {
       title: 'Database & DevOps',
       skills: [
-        { name: 'MongoDB', level: 85 },
-        { name: 'PostgreSQL', level: 80 },
-        { name: 'MySQL', level: 82 },
-        { name: 'Docker', level: 78 },
+        { name: 'MongoDB' },
+        { name: 'PostgreSQL' },
+        { name: 'MySQL' },
+        { name: 'Docker' },
       ]
     }
   ]
@@ -65,13 +65,6 @@ const Skills: React.FC = () => {
                   <div key={skillIndex} className="skills__item">
                     <div className="skills__item-header">
                       <span className="skills__item-name">{skill.name}</span>
-                      <span className="skills__item-level">{skill.level}%</span>
-                    </div>
-                    <div className="skills__progress">
-                      <div 
-                        className="skills__progress-bar"
-                        style={{ '--width': `${skill.level}%` } as React.CSSProperties}
-                      ></div>
                     </div>
                   </div>
                 ))}

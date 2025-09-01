@@ -3,9 +3,9 @@ import './About.css'
 
 const About: React.FC = () => {
   const stats = [
-    { number: '10+', label: 'Projects Completed' },
-    { number: '3+', label: 'Years Experience' },
-    { number: '20+', label: 'Happy Clients' },
+    { number: '8+', label: 'Projects Completed' },
+    { number: '2+', label: 'Years Experience' },
+    { number: '8+', label: 'Happy Clients' },
     { number: '100%', label: 'Satisfaction Rate' }
   ]
 

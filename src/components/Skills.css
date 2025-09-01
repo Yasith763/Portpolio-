@@ -83,71 +83,42 @@
 }
 
 .skills__list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.75rem;
 }
 
 .skills__item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  background: rgba(102, 126, 234, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.skills__item:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
 }
 
 .skills__item-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
 .skills__item-name {
   font-weight: 600;
   color: #2d3748;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
 }
 
-.skills__item-level {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #667eea;
-}
-
-.skills__progress {
-  height: 6px;
-  background: #e2e8f0;
-  border-radius: 3px;
-  overflow: hidden;
-  position: relative;
-}
-
-.skills__progress-bar {
-  height: 100%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 3px;
-  width: 0;
-  transition: width 2s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  will-change: width;
-}
-
-.stagger-children.visible .skills__progress-bar {
-  width: var(--width);
-}
-
-.skills__progress-bar::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-  animation: shimmer 2.5s infinite;
-  transform: translateX(-100%);
-}
-
-.stagger-children.visible .skills__progress-bar::after {
-  animation: shimmer 2.5s infinite, slideIn 2s ease-out;
+.skills__item:hover .skills__item-name {
+  color: white;
 }
 
 .skills__additional {
@@ -247,9 +218,20 @@
   }
 
   .skills__item-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
+    justify-content: center;
+  }
+
+  .skills__list {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .skills__item {
+    padding: 0.6rem 0.8rem;
+  }
+
+  .skills__item-name {
+    font-size: 0.85rem;
   }
 }
 
