@@ -14,7 +14,7 @@ const Projects: React.FC = () => {
       id: 0,
       title: 'Zia – Online Service Marketplace',
       description: 'Developed a SaaS-based web platform connecting customers in Sri Lanka with local service providers for categories such as tutoring, household repairs, and design. Implemented geo-location search, secure payment integration, real-time messaging, reviews & ratings, and an admin dashboard for system oversight. Focused on usability, scalability, and security, enabling role-based access control and mobile responsiveness.',
-  image: zia,
+      image: zia,
       technologies: ['React.js', 'Node.js (Express)', 'PostgreSQL', 'Google Maps API', 'AWS', 'PayHere/Stripe', 'WebSocket (Socket.IO)'],
       liveUrl: 'https://zia-tgsix.ondigitalocean.app/',
       githubUrl: 'https://github.com/CS3203-Project',
@@ -55,7 +55,29 @@ const Projects: React.FC = () => {
       duration: 'Jan 2024 - May 2024'
     },
     {
-      id: 4,
+      id: 5,
+      title: 'Java Game – MYSTIC MAYHEM',
+      description: 'Developed an object-oriented Java turn-based game with customizable armies, user profiles, in-game economy, XP progression, equipment and terrain effects, and home-ground advantages. Implemented combat rules, priority-based turn system.',
+      image: '/api/placeholder/400/250',
+      technologies: ['Java', 'OOP', 'Game Development'],
+      liveUrl: '#',
+      githubUrl: 'https://github.com/Yasith763/Java-Game-MYSTIC-MAYHEM-',
+      featured: false,
+      duration: 'Game Development Project'
+    },
+    {
+      id: 6,
+      title: 'RPAL Compiler Components',
+      description: 'Designed and implemented a compiler frontend for the RPAL language, including a custom lexical analyzer, recursive-descent parser, AST to ST transformation, and a CSE machine for interpretation. Added command-line flags (e.g., -ast) and ensured compatibility with reference implementations.',
+      image: '/api/placeholder/400/250',
+      technologies: ['C++', 'STL', 'Recursive Descent Parsing', 'Custom Tree Structures', 'CLI'],
+      liveUrl: '#',
+      githubUrl: 'https://github.com/Yasith763/RPAL-Compiler-design',
+      featured: false,
+      duration: 'Compiler Design Project'
+    },
+    {
+      id: 7,
       title: 'Yasix Gym',
       description: 'A modern, responsive gym website built using React.js. Features interactive header, feature highlights, special offers, about section, and contact form.',
       image: '/api/placeholder/400/250',
@@ -66,7 +88,7 @@ const Projects: React.FC = () => {
       duration: 'Jan 2024 - Mar 2024'
     },
     {
-      id: 5,
+      id: 8,
       title: 'Yasix Real Estate',
       description: 'A responsive real estate web application built with React.js. Includes home, about us, services, residencies, and contact us sections with modern UI design.',
       image: '/api/placeholder/400/250',
@@ -88,7 +110,7 @@ const Projects: React.FC = () => {
           <h2 className="projects__title">Projects</h2>
           <h3 className="projects__subtitle">Things I've Built</h3>
           <p className="projects__description">
-            Here are some of the projects I've worked on. Each project showcases 
+            Here are some of the projects I've worked on. Each project showcases
             different skills and technologies, from frontend interfaces to full-stack applications.
           </p>
         </div>
@@ -99,8 +121,8 @@ const Projects: React.FC = () => {
             {featuredProjects.map((project, index) => (
               <div key={project.id} className={`projects__card projects__card--featured ${featuredSection.isVisible ? 'fade-in-up' : ''}`} style={{ animationDelay: featuredSection.isVisible ? `${index * 0.2}s` : '0s' }}>
                 <div className="projects__card-image">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
                     className="projects__image"
                   />
@@ -116,14 +138,14 @@ const Projects: React.FC = () => {
                   <div className="projects__card-links">
                     <a href={project.liveUrl} className="projects__link projects__link--primary">
                       <svg viewBox="0 0 24 24" fill="currentColor" className="projects__link-icon">
-                        <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/>
+                        <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z" />
                       </svg>
                       Live Demo
                     </a>
                     <a href={project.githubUrl} className="projects__link projects__link--secondary">
                       <svg viewBox="0 0 24 24" fill="currentColor" className="projects__link-icon">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                       </svg>
                       GitHub
                     </a>
@@ -144,13 +166,13 @@ const Projects: React.FC = () => {
                   <div className="projects__card-links">
                     <a href={project.liveUrl} className="projects__icon-link">
                       <svg viewBox="0 0 24 24" fill="currentColor" className="projects__link-icon">
-                        <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z"/>
-                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z"/>
+                        <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                        <path d="M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7z" />
                       </svg>
                     </a>
                     <a href={project.githubUrl} className="projects__icon-link">
                       <svg viewBox="0 0 24 24" fill="currentColor" className="projects__link-icon">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                       </svg>
                     </a>
                   </div>

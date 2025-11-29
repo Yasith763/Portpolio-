@@ -39,21 +39,21 @@ const Skills: React.FC = () => {
   return (
     <section id="skills" className="skills">
       <div className="skills__container">
-        <div 
+        <div
           ref={headerAnimation.ref}
           className={`skills__header fade-in ${headerAnimation.isVisible ? 'visible' : ''}`}
         >
           <h2 className="skills__title">Skills</h2>
           <h3 className="skills__subtitle">Technologies I Work With</h3>
           <p className="skills__description">
-            As a full stack developer, I work with a comprehensive set of technologies 
-            across the entire development stack. From crafting responsive user interfaces 
-            to building scalable backend services and managing databases, I bring complete 
+            As a full stack developer, I work with a comprehensive set of technologies
+            across the entire development stack. From crafting responsive user interfaces
+            to building scalable backend services and managing databases, I bring complete
             solutions to life.
           </p>
         </div>
 
-        <div 
+        <div
           ref={skillsAnimation.ref}
           className={`skills__grid stagger-children ${skillsAnimation.isVisible ? 'visible' : ''}`}
         >
@@ -75,16 +75,25 @@ const Skills: React.FC = () => {
 
         <div className="skills__additional">
           <div className="skills__soft">
-            <h4>Soft Skills & Approach</h4>
+            <h4>Soft Skills</h4>
             <div className="skills__tags">
-              <span className="skills__tag">Problem Solving</span>
-              <span className="skills__tag">Team Collaboration</span>
-              <span className="skills__tag">Communication</span>
-              <span className="skills__tag">Continuous Learning</span>
-              <span className="skills__tag">Attention to Detail</span>
+              <span className="skills__tag">Problem-solving</span>
+              <span className="skills__tag">Teamwork & Collaboration</span>
+              <span className="skills__tag">Project Management</span>
               <span className="skills__tag">Time Management</span>
-              <span className="skills__tag">Critical Thinking</span>
-              <span className="skills__tag">Adaptability</span>
+            </div>
+          </div>
+          <div className="skills__languages">
+            <h4>Languages</h4>
+            <div className="skills__language-list">
+              <div className="skills__language-item">
+                <span className="skills__language-name">English</span>
+                <span className="skills__language-level">Fluent</span>
+              </div>
+              <div className="skills__language-item">
+                <span className="skills__language-name">Sinhala</span>
+                <span className="skills__language-level">Native</span>
+              </div>
             </div>
           </div>
         </div>
